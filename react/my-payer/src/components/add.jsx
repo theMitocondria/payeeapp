@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-function Add() {
+function Add(props) {
     const [temp,Settemp]=useState({
         Name:"",
         Email:"",
@@ -20,6 +20,8 @@ function Add() {
             console.log("values");
             return;
         }
+
+        props.addHandler(temp);
 
         Settemp({
             Name:"",
@@ -85,7 +87,7 @@ function Add() {
             />
             
         </div>
-        <button type='submit'className='ui button blue'>Add</button>
+        <button type='submit' className='ui button blue'>Add</button>
            
       </form>
     </div>

@@ -1,15 +1,26 @@
 import Header from "./header.jsx";
 import AddContact from "./add";
 import ContactList from "./conlist";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './App.css';
 
 function App() {
   const [Payee,SetPayee]=useState([]);
-  
+  const LOCAL="Payers";
+
   const addHandler=(contact)=>{
-    console.log("values rec");
+    SetPayee([...Payee,contact])
   }
+
+  useEffect(()=>{
+    const PayeeInfo =  JSON.parse(localStorage.getItem(LOCAL));
+    if(PayeeInfo) SetPayee(PayeeInfo);
+  },[]);
+  
+  useEffect(()=>{
+    localStorage.setItem(LOCAL,JSON.stringify(Payee));
+    
+  },[Payee]);
 
   return (
     <div className="ui container">
