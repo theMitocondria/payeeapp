@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 function Add(props) {
     const [temp,Settemp]=useState({
         Name:"",
@@ -29,7 +29,7 @@ function Add(props) {
             UPI:"",
             Amount:"",
             Date:""
-        });  
+        });
     }
 
     const handlechange=(e)=>{
@@ -87,8 +87,8 @@ function Add(props) {
             />
             
         </div>
-        <button type='submit' className='ui button blue'>Add</button>
-           
+        <button type='submit'  className='ui button blue'>Add</button>
+        <Link to="/"><button className='ui button blue'>Go to Home</button></Link>
       </form>
     </div>
   )
